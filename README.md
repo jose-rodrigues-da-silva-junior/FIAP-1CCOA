@@ -31,7 +31,7 @@ A arquitetura deste repositório foi desenhada para facilitar a recuperação de
 ├── .gitignore                 # Filtro de arquivos (ignora venv, caches e temporários)
 ├── LICENSE                    # MIT License (Proteção jurídica do código)
 └── README.md                  # Dashboard Central (Este arquivo)
-
+```
 
 ## 🚀 Competências & Habilidades
 - Programação Avançada
