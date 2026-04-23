@@ -1,6 +1,263 @@
 # Contribuidores
 
-- José Rodrigues
-- Heitor Assis Duenhas
-- Pedro Ribeiro Gesini
-- Diego Ramos dos Santos
+//- José Rodrigues
+//- Heitor Assis Duenhas
+//- Pedro Ribeiro Gesini
+
+
+#mostrando a interface da telemetria de pouso
+print("=" * 55)
+print("              TELEMETRIA DE POUSO DO FOGUETE AURORA 🚀")
+print("=" * 55)
+print("\n\nOLÁ TRIPULANTE, VAMOS VERIFICAR OS STATUS DA AURORA PARA DECOLAGEM?\n")
+"Escolha uma das opções abaixo:\n 1- Verificar status da nave\n 2- Mostrar graficos com dados da nave\n 3- encerrar verificação "
+
+
+opcao = int(input("Escolha uma das opções abaixo:\n 1- Verificar status da nave\n 2- Mostrar graficos com dados da nave\n 3- encerrar verificação\n\n "))
+match opcao:
+    case 1:
+        # definindo as variaveis que vão ser usadas como criterio para decolagem.
+        temperatura_interna = 0
+        temperatura_externa = 0
+        integridade_estrutural = 0
+        energia = 0
+        pressao_tanque = 0
+        modulos_criticos = 0
+
+        # importando dados aleatorios para definir as condições que o foguete esta.
+        import random
+        from collections import deque
+        temperatura_interna = random.randint(10, 30)
+        temperatura_externa = random.randint(-20, 35)
+        energia = random.randint(50, 100)
+        pressao_tanque = random.randint(20, 60)
+        integridade_estrutural = random.randint(0, 1)
+        modulos_criticos = random.randint(0, 1)
+        nivel_combustivel = random.randint(0, 100)
+        # definindo a margem com o valor 0
+
+        temperatura_interm = 0
+        temperatura_externam = 0
+        energiam = 0
+        pressao_tanquem = 0
+        integridade_estruturalm = 0
+        modulos_criticosm = 0
+
+        # definindo as contas d calculo da margem
+
+        temperatura_interm = temperatura_interna - 10
+        temperatura_externam = temperatura_externa - (-10)
+        energiam = energia - 60
+        pressao_tanquem = pressao_tanque - 40
+        integridade_estruturalm = integridade_estrutural - 1
+        modulos_criticosm = modulos_criticos - 1
+
+        # requisitos minimos da nave
+
+        temperatura_intermin = 10
+        temperatura_externamin = -10
+        energiamin = 60
+        pressao_tanquemin = 40
+        integridade_estruturalmin = 1
+        modulos_criticosmin = 1
+
+        # requisitos maximos que a nave pode chegar
+
+        temperatura_intermax = 30
+        temperatura_externamax = 35
+        energiamax = 100
+        pressao_tanquemax = 60
+        integridade_estruturalmax = 1
+        modulos_criticosmax = 1
+
+        print('=' * 50)
+
+
+
+        def analizar_tempinterna():
+            if temperatura_interna < 10:
+                return (f"Temperatura esta  {temperatura_interna}°C e esta muito baixa para pouso!")
+            elif temperatura_interna <10:
+                return (f"Temperatura é de {temperatura_interna} e esta ideal para pouso!")
+            else:
+                return(f"Temperatura é de {temperatura_interna}°C e esta muito elevada para pouso!")
+
+        def analizar_energia():
+            if energia < 60:
+                return(f"a energia esta em {energia}% e esta baixa para pouso seguro!")
+            else:
+                return(f"a energia esta em {energia}% e esta adequada para pouso seguro!")
+
+        def analizar_combustivel():
+            if nivel_combustivel < 60:
+                return(f"Nivel de combustivel esta em {nivel_combustivel}% e está muito baixo, necessita de mais combustivel para pouso!")
+            else:
+                return(f"Nivel de combustivel esta em {nivel_combustivel}% e está ideal para um pouso seguro!")
+
+        def analizar_pressaotanq():
+            if pressao_tanque < 40:
+                return(f"Pressão do tanque esta em {pressao_tanque}% não esta adequada para pouso!")
+            else:
+                return(f"Pressão do tanque esta em {pressao_tanque}% é o estado ideal para pouso!")
+
+        def analizar_intgrdestrutural():
+            if integridade_estrutural == 0:
+                return(f"Itegridade estrutural esta em baixa condição, necessita de reparo imediato!")
+            else:
+                return(f"Itegridade estrutural da Aurora está adequada para pouso!")
+
+        def analizar_moduloscriticos():
+            if modulos_criticos == 0:
+                return(f"Os modulos criticos da nave estao afetados, necessita de reparo imediato!")
+            else:
+                return(f"Os modulos criticos da Aurora estão em ótimo estado, está adequado para pouso!")
+
+        fila = deque()
+
+        fila.append((f"Temperatura", analizar_tempinterna))
+        fila.append((f"Energia", analizar_energia))
+        fila.append((f"Combustível", analizar_combustivel))
+        fila.append((f"Pressão ",analizar_pressaotanq))
+        fila.append((f"Integridade", analizar_intgrdestrutural))
+        fila.append((f"Módulos", analizar_moduloscriticos))
+
+        print("\nPROCESSANDO FILA DE SISTEMAS:\n")
+
+        while fila:
+            nome, funcao = fila.popleft()  # remove o primeiro da fila
+            resultado = funcao()  # executa a função
+
+            print(f"{nome}: {resultado}")
+
+
+
+    case 2:
+        import matplotlib.pyplot as plt
+        import random
+        temperatura_interna = random.randint(10, 30)
+        temperatura_externa = random.randint(-20, 35)
+        energia = random.randint(50, 100)
+        pressao_tanque = random.randint(20, 60)
+        integridade_estrutural = random.randint(0, 1)
+        modulos_criticos = random.randint(0, 1)
+        nivel_combustivel = random.randint(0, 100)
+        # definindo a margem com o valor 0
+
+        temperatura_interm = 0
+        temperatura_externam = 0
+        energiam = 0
+        pressao_tanquem = 0
+        integridade_estruturalm = 0
+        modulos_criticosm = 0
+
+        # definindo as contas d calculo da margem
+
+        temperatura_interm = temperatura_interna - 10
+        temperatura_externam = temperatura_externa - (-10)
+        energiam = energia - 60
+        pressao_tanquem = pressao_tanque - 40
+        integridade_estruturalm = integridade_estrutural - 1
+        modulos_criticosm = modulos_criticos - 1
+
+        # requisitos minimos da nave
+
+        temperatura_intermin = 10
+        temperatura_externamin = -10
+        energiamin = 60
+        pressao_tanquemin = 40
+        integridade_estruturalmin = 1
+        modulos_criticosmin = 1
+
+        # requisitos maximos que a nave pode chegar
+
+        temperatura_intermax = 30
+        temperatura_externamax = 35
+        energiamax = 100
+        pressao_tanquemax = 60
+        integridade_estruturalmax = 1
+        modulos_criticosmax = 1
+
+     #listagem2
+        parametros = [
+            "Temp Interna",
+            "Temp Externa",
+            "Energia",
+            "Pressão",
+            "Integridade",
+            "Módulos"
+        ]
+
+        valores = [
+            temperatura_interna,
+            temperatura_externa,
+            energia,
+            pressao_tanque,
+            integridade_estrutural,
+            modulos_criticos
+        ]
+
+        minimos = [
+            temperatura_intermin,
+            temperatura_externamin,
+            energiamin,
+            pressao_tanquemin,
+            integridade_estruturalmin,
+            modulos_criticosmin
+        ]
+
+        maximos = [
+            temperatura_intermax,
+            temperatura_externamax,
+            energiamax,
+            pressao_tanquemax,
+            integridade_estruturalmax,
+            modulos_criticosmax
+        ]
+
+        margens = [
+            temperatura_interm,
+            temperatura_externam,
+            energiam,
+            pressao_tanquem,
+            integridade_estruturalm,
+            modulos_criticosm
+        ]
+
+     #mostrando grafico
+        fig, ax = plt.subplots(figsize=(12, 6))
+
+        # Fundo azul escuro
+        fig.patch.set_facecolor('#0b1a2a')
+        ax.set_facecolor('#0b1a2a')
+
+        # LINHAS
+        ax.plot(parametros, valores, marker='o', label="Valor Atual")
+        ax.plot(parametros, minimos, linestyle='--', label="Mínimo")
+        ax.plot(parametros, maximos, linestyle='--', label="Máximo")
+
+        # TEXTO (valor + margem)
+        for i in range(len(parametros)):
+            texto = f"{valores[i]} (M:{margens[i]})"
+            ax.text(i, valores[i] + 1, texto, color='white', ha='center')
+
+        # TÍTULOS
+        ax.set_title("📈 Análise dos Sistemas - Aurora", color='white', fontsize=15)
+        ax.set_xlabel("Parâmetros", color='white')
+        ax.set_ylabel("Valores", color='white')
+
+        # ESTILO
+        ax.tick_params(colors='white')
+        ax.grid(True, linestyle='--', alpha=0.3)
+        ax.legend()
+
+        plt.tight_layout()
+        plt.show()
+
+    case 3:
+        print("Encerrando sistema!")
+
+
+
+
+
+
